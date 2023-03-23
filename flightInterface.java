@@ -1,3 +1,5 @@
+import java.util.Date;
+
 interface flightInterface{
 	public void setLocation(Location loc);
 	public Location getLocation();
@@ -11,5 +13,5 @@ interface flightInterface{
 	public void setFlightNo(String str);
 	public String getFlightNo();
 	public void setPrice(Float fl);
-	public Float getPrice
+	public Float getPrice();
 }
