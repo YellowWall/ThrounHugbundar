@@ -3,5 +3,5 @@ interface customerInterface{
 	public void setSSN(int x);
 	public void setEmail(String str);
 	public void addBooking(Booking book);
-	public Booking[] getBookings();
+	public ArrayList<Booking> getBookings();
 }

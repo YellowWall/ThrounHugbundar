@@ -1,5 +1,4 @@
 interface bookingInterface{
-	public booking(Flight fl, Customer cust);
 	public Date getDate();
 	public String getFlightNo();
 	public Customer getCustomer();
