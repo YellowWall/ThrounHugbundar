@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 interface customerInterface{
 	public void setName(String str);
 	public void setSSN(int x);

@@ -1,3 +1,5 @@
+import java.util.Date;
+
 interface bookingInterface{
 	public Date getDate();
 	public String getFlightNo();
