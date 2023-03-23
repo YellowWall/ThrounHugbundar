@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class bookingControllerTest{
     private String seatNumber;
     private String service;
@@ -44,12 +42,13 @@ public class bookingControllerTest{
         
     }
 
-    public void createBooking(booking Booking,customer Customer){
-        return Booking;
+    public Booking createBooking(Booking booking,Customer customer){
+        return booking;
     }
 
     public Boolean cancelBooking(String bookingId){
-        
+        return null;
+        /* Losna við pirrandi villu */
     }
 
     public String reserveSeat(String seatNumber){
@@ -57,7 +56,8 @@ public class bookingControllerTest{
     }
 
     public Boolean removeSeats(String seatNumber){
-
+        return null; 
+        /* Losna við pirrandi villu */
     }
 
 
