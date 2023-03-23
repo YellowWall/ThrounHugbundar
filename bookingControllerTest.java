@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class bookingController{
+public class bookingControllerTest{
     private String seatNumber;
     private String service;
     private int priceExtra;
@@ -9,6 +9,7 @@ public class bookingController{
 
     private Customer customer;
     private Flight flight;
+    private Booking booking;
 
 
     public Flight getFlight(){
@@ -47,7 +48,7 @@ public class bookingController{
         return Booking;
     }
 
-    public Boolean cancelBooking(string bookingId){
+    public Boolean cancelBooking(String bookingId){
         
     }
 
