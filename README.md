@@ -3,7 +3,7 @@
 ## Hópur 2F - Flight search
 
 ### bookingControllerTest.java
-Ingimar að fikta í því atm. 
+- Ingimar að fikta í því atm. 
 
 ### bookingInterface.java
 - Ætti að vera reddý
