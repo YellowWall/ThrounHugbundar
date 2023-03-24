@@ -10,6 +10,7 @@ public class bookingControllerTest{
 
     private Customer customer;
     private Flight flight;
+    
     private Booking booking;
 
 
