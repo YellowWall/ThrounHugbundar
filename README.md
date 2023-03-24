@@ -3,7 +3,7 @@
 ## Hópur 2F - Flight search
 
 ### bookingControllerTest.java
-Byrjuð á að setja inn nauðsynleg föll og breytur
+Ingimar að fikta í því atm. 
 
 ### bookingInterface.java
 - Ætti að vera reddý
