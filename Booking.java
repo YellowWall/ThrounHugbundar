@@ -11,6 +11,7 @@ public class Booking implements bookingInterface {
     private ArrayList<String> services = new ArrayList<String>();
     private String bookingId;
     private Float extraPrice;
+
     @Override
     public Date getDate() {
         return date;
@@ -25,38 +26,33 @@ public class Booking implements bookingInterface {
     public Customer getCustomer() {
         return customer;
     }
+
     @Override
     public int getNumSeats() {
-        return  numSeats;
+        return numSeats;
     }
 
     @Override
-    public void addSeat(int x,char a) {
-        seats.add(x+a+"");
+    public void addSeat(int x, char a) {
+        seats.add(x + a + "");
     }
 
     @Override
     public String[] getSeats() {
         String[] ret = new String[numSeats];
-        for(int i = 0; i < numSeats;i++){
+        for (int i = 0; i < numSeats; i++) {
             ret[i] = seats.get(i);
         }
         return ret;
     }
 
     @Override
-<<<<<<< HEAD
     public String[] getService() {
         String[] ret = new String[services.size()];
-        for(int i = 0; i>services.size();i++){
+        for (int i = 0; i > services.size(); i++) {
             ret[i] = services.get(i);
         }
         return ret;
-=======
-    public Enum<?> getService() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getService'");
->>>>>>> refs/remotes/origin/main
     }
 
     @Override
@@ -82,5 +78,5 @@ public class Booking implements bookingInterface {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getBookingId'");
     }
-    
+
 }
