@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class bookingControllerTest{
     private String seatNumber;
     private String service;
@@ -18,32 +21,39 @@ public class bookingControllerTest{
         return this.customer;
     }
 
-    public void setBookingId(String bookingId) {
+    public String setBookingId(String bookingId) {
         this.bookingId = bookingId;
+        return bookingId;
     }
 
-    public void setNumTickets(int numTickets) {
+    public int setNumTickets(int numTickets) {
         this.numTickets = numTickets;
+        return numTickets;
     }
 
-    public void setPriceExtra(int priceExtra) {
+    public int setPriceExtra(int priceExtra) {
         this.priceExtra = priceExtra;
+        return priceExtra;
     }
 
-    public void setService(String service) {
+    public String setService(String service) {
         this.service = service;
+        return service;
     }
 
-    public void setSeatNumber(String seatNumber) {
+    public String setSeatNumber(String seatNumber) {
         this.seatNumber = seatNumber;
-    }
+        return seatNumber;
+    } 
 
-    public void getBookings(){
-        
+    public Booking getBookings(Booking booking){
+        List<Booking> list = new ArrayList<Booking>();
+        return (Booking) list;
     }
 
     public Booking createBooking(Booking booking,Customer customer){
-        return booking;
+        List<Booking> list = new ArrayList<Booking>();
+        return (Booking) list;
     }
 
     public Boolean cancelBooking(String bookingId){
