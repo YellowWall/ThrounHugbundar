@@ -1,47 +1,56 @@
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 public class Booking implements bookingInterface {
-
+    private Date date;
+    private String flightNo;
+    private Customer customer;
+    private ArrayList<String> seats = new ArrayList<String>();
+    private int numSeats = 0;
+    private ArrayList<String> services = new ArrayList<String>();
+    private String bookingId;
+    private Float extraPrice;
     @Override
     public Date getDate() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDate'");
+        return date;
     }
 
     @Override
     public String getFlightNo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getFlightNo'");
+        return flightNo;
     }
 
     @Override
     public Customer getCustomer() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCustomer'");
+        return customer;
     }
-
     @Override
     public int getNumSeats() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNumSeats'");
+        return  numSeats;
     }
 
     @Override
-    public void addSeat(int x, char a) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addSeat'");
+    public void addSeat(int x,char a) {
+        seats.add(x+a+"");
     }
 
     @Override
     public String[] getSeats() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getSeats'");
+        String[] ret = new String[numSeats];
+        for(int i = 0; i < numSeats;i++){
+            ret[i] = seats.get(i);
+        }
+        return ret;
     }
 
     @Override
-    public Enum[] getService() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getService'");
+    public String[] getService() {
+        String[] ret = new String[services.size()];
+        for(int i = 0; i>services.size();i++){
+            ret[i] = services.get(i);
+        }
+        return ret;
     }
 
     @Override
