@@ -39,7 +39,7 @@ public class Booking implements bookingInterface {
     }
 
     @Override
-    public Enum[] getService() {
+    public Enum<?> getService() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getService'");
     }
