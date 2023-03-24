@@ -6,6 +6,7 @@ public class Customer implements customerInterface{
 	private String email = null;
 	private ArrayList<Booking> bookings = new ArrayList();
 
+
 	@Override
 	public void setName(String str) {
 		// TODO Auto-generated method stub
