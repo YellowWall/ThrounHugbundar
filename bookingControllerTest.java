@@ -1,73 +1,47 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class bookingControllerTest{
-    private String seatNumber;
-    private String service;
-    private int priceExtra;
-    private String bookingId;
-    private int numTickets;
+    private List<Booking> bookings = new ArrayList<Booking>();
+    private bookingRepositiory bookingRepo;
 
-    private Customer customer;
-    private Flight flight;
-    private Booking booking;
+    //private Customer customer;
+    //private Flight flight;
+    //private Booking booking;
 
 
-    public Flight getFlight(){
-        return this.flight;
-    }
-
-    public Customer getCustomer(){
-        return this.customer;
-    }
-
-    public String setBookingId(String bookingId) {
-        this.bookingId = bookingId;
-        return bookingId;
-    }
-
-    public int setNumTickets(int numTickets) {
-        this.numTickets = numTickets;
-        return numTickets;
-    }
-
-    public int setPriceExtra(int priceExtra) {
-        this.priceExtra = priceExtra;
-        return priceExtra;
-    }
-
-    public String setService(String service) {
-        this.service = service;
-        return service;
-    }
-
-    public String setSeatNumber(String seatNumber) {
-        this.seatNumber = seatNumber;
-        return seatNumber;
-    } 
-
-    public Booking getBookings(Booking booking){
-        List<Booking> list = new ArrayList<Booking>();
-        return (Booking) list;
+    public List<Booking> getBookings(){
+        return bookings;
     }
 
     public Booking createBooking(Booking booking,Customer customer){
-        List<Booking> list = new ArrayList<Booking>();
+        List<Booking> list = bookingRepo.createBooking(booking);
+        bookings = list;
         return (Booking) list;
     }
 
     public Boolean cancelBooking(String bookingId){
-        return null;
-        /* Losna við pirrandi villu */
+        Iterator<Booking> it = bookings.iterator();
+        while (it.hasNext()) {
+            Booking b = it.next();
+            if (bookingId.equals(b.getBookingId())) {
+                if (bookingRepo.cancelBooking(b)) {
+                    bookings = bookingRepo.getBookings();
+                    return true;
+                }
+                else return false;
+            }
+        }
+        return false;
     }
 
-    public String reserveSeat(String seatNumber){
-        return seatNumber;
+    public void reserveSeat(String seatNumber){
+        //Todo, veit ekki hvernir þetta á að virka
     }
 
-    public Boolean removeSeats(String seatNumber){
-        return null; 
-        /* Losna við pirrandi villu */
+    public void removeSeats(String seatNumber){
+        //Todo, veit ekki hvernir þetta á að virka
     }
 
 
