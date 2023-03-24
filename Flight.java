@@ -1,6 +1,15 @@
 import java.util.Date;
 
-public class Flight implements flightInterface {
+public class Flight implements flightInterface{
+    private Date date;
+    private Location loc;
+    private int capacity;
+    
+    public Flight(Date dat,Location loc, int cap){
+        date=dat;
+        this.loc=loc;
+        capacity=cap;
+    }
 
     @Override
     public void setLocation(Location loc) {
@@ -79,4 +88,5 @@ public class Flight implements flightInterface {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getPrice'");
     }
+    
 }

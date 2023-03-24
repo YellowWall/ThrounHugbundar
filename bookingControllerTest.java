@@ -6,11 +6,6 @@ public class bookingControllerTest{
     private List<Booking> bookings = new ArrayList<Booking>();
     private bookingRepositiory bookingRepo;
 
-    //private Customer customer;
-    //private Flight flight;
-    //private Booking booking;
-
-
     public List<Booking> getBookings(){
         return bookings;
     }
