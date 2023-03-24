@@ -45,18 +45,12 @@ public class Booking implements bookingInterface {
     }
 
     @Override
-<<<<<<< HEAD
     public String[] getService() {
         String[] ret = new String[services.size()];
         for(int i = 0; i>services.size();i++){
             ret[i] = services.get(i);
         }
         return ret;
-=======
-    public Enum<?> getService() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getService'");
->>>>>>> refs/remotes/origin/main
     }
 
     @Override
