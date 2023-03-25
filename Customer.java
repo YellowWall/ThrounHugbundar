@@ -4,9 +4,8 @@ public class Customer implements customerInterface{
 	private String name = null;
 	private int SSN;
 	private String email = null;
-	private ArrayList<Booking> bookings = new ArrayList();
 
-
+	public Customer (String name, int SSN, String email
 	@Override
 	public void setName(String str) {
 		// TODO Auto-generated method stub
@@ -23,18 +22,6 @@ public class Customer implements customerInterface{
 	public void setEmail(String str) {
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'setEmail'");
-	}
-
-	@Override
-	public void addBooking(Booking book) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'addBooking'");
-	}
-
-	@Override
-	public ArrayList<Booking> getBookings() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'getBookings'");
 	}
 
 }

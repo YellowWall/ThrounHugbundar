@@ -10,8 +10,14 @@ public class Booking implements bookingInterface {
     private int numSeats = 0;
     private ArrayList<String> services = new ArrayList<String>();
     private String bookingId;
-    private Float extraPrice;
+    private Float extraPrice = 0;
 
+    public Booking(String flightNo, Customer customer,Date date){
+     //insert into booking database, get bookingId from there.
+        this.flightNo = flightNo;
+        this.customer = customer;
+        this.date = date;
+    }
     @Override
     public Date getDate() {
         return date;
@@ -35,6 +41,7 @@ public class Booking implements bookingInterface {
     @Override
     public void addSeat(int x, char a) {
         seats.add(x + a + "");
+        numSeats++;
     }
 
     @Override

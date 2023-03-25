@@ -5,7 +5,7 @@ import java.util.List;
 public class bookingControllerTest{
     private List<Booking> bookings = new ArrayList<Booking>();
     private bookingRepositiory bookingRepo;
-
+    
     public List<Booking> getBookings(){
         return bookings;
     }
@@ -31,8 +31,8 @@ public class bookingControllerTest{
         return false;
     }
 
-    public void reserveSeat(String seatNumber){
-        //Todo, veit ekki hvernir þetta á að virka
+    public Boolean reserveSeat(String seatNumber){
+
     }
 
     public void removeSeats(String seatNumber){
@@ -41,3 +41,14 @@ public class bookingControllerTest{
 
 
 }
+	Location a = new Location("A","B");
+	Flight f123 = new Flight(new Date(),a,"123",20);
+   	Customer testingCustomer = new Customer("A",123,"A");
+        Booking testbook = new Booking("123",testingCustomer);
+        Booking testbook2 = new Booking("123",testingCustomer);
+        Boolean seatget = testbook.reserveSeat("A12");
+        Boolean seatget2 = testbook2.reserveSeat("A12");
+        expect(seatget).toBeTrue();
+        expect(seatget2).not.toBeTrue();
+        
+        

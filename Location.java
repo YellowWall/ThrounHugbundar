@@ -1,6 +1,10 @@
 public class Location implements locationInterface{
     private String destination = null;
     private String departure = null;
+    public Location(String destination, String departure){
+    	this.destination = destination;
+    	this.departure = departure;
+    }
     @Override
     public void setDestination(String str) {
         if(str!=null && str.length()>0){
