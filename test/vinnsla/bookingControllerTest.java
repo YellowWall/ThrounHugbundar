@@ -1,6 +1,12 @@
+package test.vinnsla;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import src.Booking;
+import src.Customer;
+import src.Flight;
+import src.Location;
 
 public class bookingControllerTest{
     private List<Booking> bookings = new ArrayList<Booking>();

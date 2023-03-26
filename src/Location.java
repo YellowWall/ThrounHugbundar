@@ -1,3 +1,4 @@
+package src;
 public class Location implements locationInterface{
     private String destination = null;
     private String departure = null;

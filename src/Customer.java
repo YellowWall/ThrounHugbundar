@@ -1,11 +1,16 @@
+package src;
 import java.util.ArrayList;
 
 public class Customer implements customerInterface{
-	private String name = null;
-	private int SSN;
-	private String email = null;
+	private String name;
+	private int SSNo;
+	private String email;
 
-	public Customer (String name, int SSN, String email
+	public Customer (String Name, int SSN, String Email){
+		name = Name;
+		SSNo = SSN;
+		email = Email;
+	}
 	@Override
 	public void setName(String str) {
 		// TODO Auto-generated method stub
