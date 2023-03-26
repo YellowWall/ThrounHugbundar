@@ -9,7 +9,7 @@ public class BookingRepositiory {
 
     }
 
-    public List<Booking> createBookings(Booking booking){
+    public List<Booking> createBooking(Booking booking){
 
     }
 
@@ -26,6 +26,6 @@ public class BookingRepositiory {
     }
 
     public Booking updateBooking(Booking booking){
-        
+
     }
 }
