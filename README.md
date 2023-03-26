@@ -2,6 +2,10 @@
 
 ## Hópur 2F - Flight search
 
+##aðalskráin fyrir þessi skil er BookingControllerTest.java
+Þar erum við að prófa aðgerðir á controllernum.
+Testing útfærsla ekki alveg tilbúin en hefur framework fyrir pr
+
 ### bookingControllerTest.java
 - Ingimar að fikta í því atm. 
 
