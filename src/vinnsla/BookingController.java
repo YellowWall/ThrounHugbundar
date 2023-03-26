@@ -6,7 +6,7 @@ import java.util.List;
 
 public class BookingController{
     private List<Booking> bookings = new ArrayList<Booking>();
-    private bookingRepositiory bookingRepo;
+    private BookingRepositiory bookingRepo;
     
     
     public List<Booking> getBookings(){
