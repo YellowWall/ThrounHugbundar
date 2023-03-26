@@ -83,8 +83,7 @@ public class Booking implements bookingInterface {
 
     @Override
     public String getBookingId() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getBookingId'");
+        return bookingId;   
     }
 
 }
