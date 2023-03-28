@@ -4,5 +4,5 @@
     </padding>
 
     <Label fx:id="welcomeText" />
-    <Button onAction="#onHelloButtonClick" text="Take away" />
+    <Button onAction="#onHelloButtonClick" text="Flight Info" />
 </VBox>
