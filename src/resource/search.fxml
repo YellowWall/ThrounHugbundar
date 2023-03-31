@@ -2,70 +2,122 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="657.0" style="-fx-background-image: #b8ff3d;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fill="#131313" strokeType="OUTSIDE" strokeWidth="0.0" text="SÍMI air" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="656.8077697753906">
-         <font>
-            <Font name="Arial" size="48.0" />
-         </font>
-         <VBox.margin>
-            <Insets bottom="10.0" top="20.0" />
-         </VBox.margin>
-      </Text>
-      <HBox prefHeight="98.0" prefWidth="600.0" style="-fx-background-color: #b8ff3d;">
+      <ImageView fitHeight="429.0" fitWidth="610.0" layoutY="-11.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="-2.0">
+         <image>
+            <Image url="@../../../beach.jpg" />
+         </image>
+         <effect>
+            <Blend>
+               <topInput>
+                  <Blend />
+               </topInput>
+            </Blend>
+         </effect>
+      </ImageView>
+      <VBox prefHeight="413.0" prefWidth="602.0">
          <children>
-            <TextField prefHeight="52.0" prefWidth="170.0" promptText="Sláðu inn flugnúmer">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="5.0" top="20.0" />
-               </HBox.margin>
-            </TextField>
-            <TextField layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="170.0" promptText="Sláðu inn brottfararstað">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="5.0" right="5.0" top="20.0" />
-               </HBox.margin>
-            </TextField>
-            <TextField layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="170.0" promptText="Sláðu inn komustað">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="5.0" right="5.0" top="20.0" />
-               </HBox.margin>
-            </TextField>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="38.0" prefWidth="76.0" text="Leita">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="5.0" top="25.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="25.0" right="25.0" top="5.0" />
-               </padding>
-            </Button>
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ódýrasta flug dagsins!" textOrigin="CENTER" wrappingWidth="184.32598876953125">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SÍMI air" textAlignment="CENTER" wrappingWidth="598.936767578125">
                <font>
-                  <Font size="18.0" />
+                  <Font size="50.0" />
                </font>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
             </Text>
-            <ImageView fitHeight="150.0" fitWidth="237.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../denmark.jpg" />
-               </image>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </ImageView>
+            <VBox prefHeight="190.0" prefWidth="579.0" style="-fx-background-color: #CFF0E4;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Leita að flugi eftir flugnúmeri:" wrappingWidth="577.3366584777832">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField promptText="Sláðu inn flugnúmer">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" text="Leita">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Leita að flugi eftir staðsetningu og tímasetningu:" wrappingWidth="578.1367378234863">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField prefHeight="26.0" prefWidth="175.0" promptText="Sláðu inn brottfararstað">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <TextField layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="175.0" promptText="Sláðu inn áfangastað">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker promptText="Brottför">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <DatePicker layoutX="10.0" layoutY="10.0" promptText="Heimkoma">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <Button mnemonicParsing="false" text="Leita">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
          </children>
-      </HBox>
+      </VBox>
    </children>
-</VBox>
+</AnchorPane>
