@@ -2,9 +2,14 @@ package src.vinnsla;
 import java.util.List;
 import java.util.ArrayList;
 
-public class BookingRepositiory {
+public class BookingRepository {
 
+    public Seat getInFlightSeats(Flight flight){
 
+    }
+    public int getSpaceInFlight(Flight flight){
+
+    }
     public List<Booking> getBookings() {
 
     }
@@ -17,11 +22,17 @@ public class BookingRepositiory {
 
     }
 
-    public void reserveSeats(){
+    public boolean reserveSeats(){
+
+    }
+    public boolean createTicket(){
+
+    }
+    public boolean removeTicket(){
 
     }
 
-    public void removeSeat(){
+    public boolean removeSeat(){
 
     }
 

@@ -26,7 +26,7 @@ CREATE TABLE public.Customer{
     id SERIAL PRIMARY KEY,
     Name VARCHAR(36) NOT NULL,
     SSN INT NOT NULL UNIQUE,
-    email VARCHAR(36),
+    email VARCHAR(36)
 };
 CREATE TABLE public.Bookings{
     id SERIAL PRIMARY KEY,
@@ -40,8 +40,9 @@ CREATE TABLE public.ticket{
     id SERIAL PRIMARY KEY,
     booking int NOT NULL,
     passport VARCHAR(36),
+    name VARCHAR(36),
     SeatAssigned BOOLEAN default FALSE,
-    FOREIGN KEY booking references Bookings(id)
+    FOREIGN KEY booking classreferences Bookings(id)
 };
 CREATE TABLE public.Seats{
     id SERIAL PRIMARY KEY,
