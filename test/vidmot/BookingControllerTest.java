@@ -1,6 +1,7 @@
 package test.vidmot;
 import org.junit.*;
 
+import src.repositories.BookingRepository;
 import src.vinnsla.*;
 
 import static org.junit.Assert.*;

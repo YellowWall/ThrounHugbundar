@@ -1,5 +1,10 @@
-package src.vinnsla;
+package src.repositories;
 import java.util.List;
+
+import src.vinnsla.Booking;
+import src.vinnsla.Flight;
+import src.vinnsla.Seat;
+
 import java.util.ArrayList;
 
 public class BookingRepository {
