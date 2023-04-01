@@ -9,6 +9,10 @@ import java.util.ArrayList;
 
 public class BookingRepository {
 
+    public BookingRepository(){
+
+    }
+
     public Seat getInFlightSeats(Flight flight){
 
     }
@@ -19,7 +23,7 @@ public class BookingRepository {
 
     }
 
-    public List<Booking> createBookings(Booking booking){
+    public List<Booking> createBooking(Booking booking){
 
     }
 

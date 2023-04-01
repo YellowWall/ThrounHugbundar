@@ -3,11 +3,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import src.repositories.BookingRepository;
 
 public class BookingController{
     private List<Booking> bookings = new ArrayList<Booking>();
-    private BookingRepositiory bookingRepo;
+    private BookingRepository bookingRepo;
     
+    public BookingController(){
+        bookingRepo = new BookingRepository();
+    }
     
     public List<Booking> getBookings(){
         return bookings;
@@ -53,7 +57,7 @@ public class BookingController{
         return false;
     }
 
-    public Boolean reserveSeat(String seatNumber){
+    public void reserveSeat(String seatNumber){
 
     }
 
