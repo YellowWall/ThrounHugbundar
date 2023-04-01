@@ -9,6 +9,10 @@ import src.vinnsla.Seat;
 import java.util.ArrayList;
 public class AirlineRepository {
 
+    public AirlineRepository(){
+        
+    }
+
     public List<Customer> findCustomer(String name, String flightNo){
 
     }
@@ -18,6 +22,6 @@ public class AirlineRepository {
     }
 
     public Customer updateCustomer(Customer customer){
-        
+
     }
 }
