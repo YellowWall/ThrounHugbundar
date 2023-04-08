@@ -1,8 +1,8 @@
 package src.vinnsla;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 interface customerInterface{
-	public void setName(String name);
-	public void setSSN(int SSN);
-	public void setEmail(String email);
+	public String getName();
+	public int getSSN();
+	public String getEmail();
 }

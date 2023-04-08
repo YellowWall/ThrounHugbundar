@@ -5,5 +5,5 @@ public class Ticket {
     private String name;
     private String seat;
     private String passport;
-    private extras;
+    //private extras;
 }
