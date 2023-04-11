@@ -2,6 +2,7 @@ package src.repositories;
 import java.util.List;
 
 import src.vinnsla.Booking;
+import src.vinnsla.Customer;
 import src.vinnsla.Flight;
 import src.vinnsla.Seat;
 
@@ -11,6 +12,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class BookingRepository {
 
@@ -67,77 +69,106 @@ public class BookingRepository {
 
     }
     public int getSpaceInFlight(Flight flight){
-        try(Connection connection = DriverManager.getConnection(connectionUrl);
-        )
-        {
+        Connection conn = null;
+        ResultSet resultSet = null;
+        try{ conn = DriverManager.getConnection(url,user,password);
+            return 1;
 
         }catch(SQLException e){
             e.printStackTrace();
+            return 0;
         }
 
     }
     public List<Booking> getBookings() {
-        try(Connection connection = DriverManager.getConnection(connectionUrl);){
-
+        Connection conn = null;
+        ResultSet resultSet = null;
+        List<Booking> myList = new ArrayList<>();
+        try{ conn = DriverManager.getConnection(url,user,password);
+            return myList;
         }catch(SQLException e){
             e.printStackTrace();
+            return myList;
         }
 
     }
 
     public List<Booking> createBooking(Booking booking){
-        try(Connection connection = DriverManager.getConnection(connectionUrl);){
-
+        Connection conn = null;
+        ResultSet resultSet = null;
+        List<Booking> myList = new ArrayList<>();
+        try{ conn = DriverManager.getConnection(url,user,password);
+            return myList;
         }catch(SQLException e){
             e.printStackTrace();
+            return myList;
         }
 
     }
 
     public boolean cancelBooking(Booking booking){
-        try(Connection connection = DriverManager.getConnection(connectionUrl);){
-
+        Connection conn = null;
+        ResultSet resultSet = null;
+        try{ conn = DriverManager.getConnection(url,user,password);
+            return true;
         }catch(SQLException e){
             e.printStackTrace();
+            return false;
         }
 
     }
 
     public boolean reserveSeats(){
-        try(Connection connection = DriverManager.getConnection(connectionUrl);){
+        Connection conn = null;
+        ResultSet resultSet = null;
+        try{ conn = DriverManager.getConnection(url,user,password);
+            return true;
 
         }catch(SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
     public boolean createTicket(){
-        try(Connection connection = DriverManager.getConnection(connectionUrl);){
-
+        Connection conn = null;
+        ResultSet resultSet = null;
+        try{ conn = DriverManager.getConnection(url,user,password);
+            return true;
         }catch(SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
     public boolean removeTicket(){
-        try(Connection connection = DriverManager.getConnection(connectionUrl);){
-
+        Connection conn = null;
+        ResultSet resultSet = null;
+        try{ conn = DriverManager.getConnection(url,user,password);
+            return true;
         }catch(SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 
     public boolean removeSeat(){
-        try(Connection connection = DriverManager.getConnection(connectionUrl);){
-
+        Connection conn = null;
+        ResultSet resultSet = null;
+        try{ conn = DriverManager.getConnection(url,user,password);
+            return true;
         }catch(SQLException e){
             e.printStackTrace();
+            return false;
         }
     }
 
     public Booking updateBooking(Booking booking){
-        try(Connection connection = DriverManager.getConnection(connectionUrl);){
-
+        Connection conn = null;
+        ResultSet resultSet = null;
+        try{ conn = DriverManager.getConnection(url,user,password);
+            return new Booking("not1",new Customer("test", 0, "test@test.is"),new Date());
         }catch(SQLException e){
             e.printStackTrace();
+            return null;
         }
     }
 }
