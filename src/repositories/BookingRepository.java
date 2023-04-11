@@ -21,14 +21,13 @@ public class BookingRepository {
     private static String password = "f6oiteRl2PFv8NuE0cCGZP8XpBbMg7SS";
     public BookingRepository(){
     }  
-    public void main(){
+    public void run(){
         Connection conn = null;
         ResultSet resultSet = null;
         try{conn = DriverManager.getConnection(url,user,password);
-            String selectSql = "select * from flights";
+            String selectSql = "select flightNum from flight";
             Statement stmnt = conn.createStatement();
             resultSet= stmnt.executeQuery(selectSql);
-            System.out.println(selectSql);
             while(resultSet.next()){
                 System.out.print(resultSet.getString(1));
             }
@@ -170,5 +169,10 @@ public class BookingRepository {
             e.printStackTrace();
             return null;
         }
+    }
+    public static void main(String[] args) {
+        BookingRepository app = new BookingRepository();
+        System.out.println("running");
+        app.run();
     }
 }
