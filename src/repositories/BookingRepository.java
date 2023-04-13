@@ -70,9 +70,16 @@ public class BookingRepository {
     public int getSpaceInFlight(Flight flight){
         Connection conn = null;
         ResultSet resultSet = null;
+        int seats_left = 0;
         try{ conn = DriverManager.getConnection(url,user,password);
-            return 1;
-
+            String query = "select DateFlight.Total_Seats, DateFlight.seats_left from DateFlight left join Flight on DateFlight.flight = Flight.id " +
+            "where flight.FlightNum = " + flight.getFlightNo() + " and DateFlight.day = " + flight.getDate().toString();
+            Statement stmnt = conn.createStatement();
+            resultSet = stmnt.executeQuery(query);
+            while(resultSet.next()){
+                seats_left = resultSet.getInt(2);
+                System.out.println(resultSet.getInt(1) +"  "+resultSet.getInt(2));
+            } return seats_left;
         }catch(SQLException e){
             e.printStackTrace();
             return 0;
