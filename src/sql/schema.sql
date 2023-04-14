@@ -9,7 +9,7 @@ CREATE TABLE public.Flight (
     Arrival VARCHAR(36) NOT NULL,
     Airline int NOT NULL,
     length TIME,
-    FOREIGN KEY (Airline) references Airline(id)
+    FOREIGN KEY (Airline) references Airline(id) on delete cascade
 );
 CREATE TABLE public.DateFlight(
     id serial PRIMARY KEY,
@@ -19,7 +19,7 @@ CREATE TABLE public.DateFlight(
     arriving TIMESTAMP NOT NULL default current_timestamp,
     Total_Seats int NOT NULL ,
     seats_left int DEFAULT 0,
-    FOREIGN KEY (flight) references Flight(id),
+    FOREIGN KEY (flight) references Flight(id) on delete cascade,
     CONSTRAINT uq_pair UNIQUE(flight,day)
 );
 CREATE TABLE public.Customer(
@@ -34,8 +34,8 @@ CREATE TABLE public.Bookings(
     customer int,
     flight int NOT NULL,
     seats int DEFAULT 0,
-    FOREIGN KEY (flight) references DateFlight(id),
-    FOREIGN KEY (customer) references Customer(id)
+    FOREIGN KEY (flight) references DateFlight(id) on delete cascade,
+    FOREIGN KEY (customer) references Customer(id) on delete cascade
 );
 CREATE TABLE public.ticket(
     id SERIAL PRIMARY KEY,
@@ -43,7 +43,7 @@ CREATE TABLE public.ticket(
     passport VARCHAR(36),
     name VARCHAR(36),
     SeatAssigned BOOLEAN default FALSE,
-    FOREIGN KEY (booking) references Bookings(id)
+    FOREIGN KEY (booking) references Bookings(id) on delete cascade
 );
 CREATE TABLE public.Seats(
     id SERIAL PRIMARY KEY,
@@ -51,7 +51,7 @@ CREATE TABLE public.Seats(
     ticket int not null,
     seat VARCHAR(3),
     CONSTRAINT uq_seat UNIQUE(flight,seat),
-    FOREIGN KEY (ticket) references ticket(id)
+    FOREIGN KEY (ticket) references ticket(id) on delete cascade
 );
 CREATE TABLE public.Extras (
     id SERIAL PRIMARY KEY,
@@ -59,5 +59,5 @@ CREATE TABLE public.Extras (
     name VARCHAR(36) not null,
     description VARCHAR(1000),
     price int,
-    FOREIGN KEY (ticket) REFERENCES ticket(id)
+    FOREIGN KEY (ticket) REFERENCES ticket(id) on delete cascade
 );

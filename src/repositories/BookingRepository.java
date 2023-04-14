@@ -227,7 +227,7 @@ public class BookingRepository {
         Connection conn = null;
         ResultSet resultSet = null;
         try{ conn = DriverManager.getConnection(url,user,password);
-            String getId = "delete cascade from bookings where bookingId =" + booking.getBookingId()+" returning 1;";
+            String getId = "delete from bookings where bookingId =" + booking.getBookingId()+" returning 1;";
             Statement stm = conn.createStatement();
             resultSet = stm.executeQuery(getId);
             if(!resultSet.next()){
