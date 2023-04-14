@@ -8,6 +8,8 @@ import src.repositories.BookingRepository;
 public class BookingController{
     private List<Booking> bookings = new ArrayList<Booking>();
     private BookingRepository bookingRepo;
+    private Customer customer = null;
+
     
     public BookingController(){
         bookingRepo = new BookingRepository();
@@ -48,7 +50,7 @@ public class BookingController{
             Booking b = it.next();
             if (bookingId.equals(b.getBookingId())) {
                 if (bookingRepo.cancelBooking(b)) {
-                    bookings = bookingRepo.getBookings();
+                    bookings = bookingRepo.getBookings(customer);
                     return true;
                 }
                 else return false;
@@ -64,6 +66,8 @@ public class BookingController{
     public void removeSeats(String seatNumber){
         //Todo, veit ekki hvernir þetta á að virka
     }
-
+    public void setCustomer(Customer customer){
+        this.customer=customer;
+    }
 
 }

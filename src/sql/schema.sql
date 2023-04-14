@@ -14,10 +14,10 @@ CREATE TABLE public.Flight (
 CREATE TABLE public.DateFlight(
     id serial PRIMARY KEY,
     flight int,
-    day DATE NOT NULL,
-    departing  TIMESTAMP NOT NULL,
-    arriving TIMESTAMP NOT NULL,
-    Total_Seats int NOT NULL,
+    day DATE NOT NULL DEFAULT current_date,
+    departing  TIMESTAMP NOT NULL default current_timestamp,
+    arriving TIMESTAMP NOT NULL default current_timestamp,
+    Total_Seats int NOT NULL ,
     seats_left int DEFAULT 0,
     FOREIGN KEY (flight) references Flight(id),
     CONSTRAINT uq_pair UNIQUE(flight,day)
@@ -30,6 +30,7 @@ CREATE TABLE public.Customer(
 );
 CREATE TABLE public.Bookings(
     id SERIAL PRIMARY KEY,
+    bookingId varchar(20) not null UNIQUE,
     customer int,
     flight int NOT NULL,
     seats int DEFAULT 0,
@@ -47,7 +48,6 @@ CREATE TABLE public.ticket(
 CREATE TABLE public.Seats(
     id SERIAL PRIMARY KEY,
     flight int not null,
-    person int not null,
     ticket int not null,
     seat VARCHAR(3),
     CONSTRAINT uq_seat UNIQUE(flight,seat),

@@ -38,11 +38,17 @@ public class Booking implements bookingInterface {
     public int getNumSeats() {
         return numSeats;
     }
+    public void setNumSeats(int i){
+        this.numSeats= i;
+    }
 
     @Override
     public void addSeat(int x, char a) {
         seats.add(x + a + "");
         numSeats++;
+    }
+    public void setSeats(ArrayList<String> seats){
+        this.seats = seats;
     }
 
     @Override
@@ -77,8 +83,7 @@ public class Booking implements bookingInterface {
 
     @Override
     public void setBookingId(String str) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setBookingId'");
+        this.bookingId = str;
     }
 
     @Override
