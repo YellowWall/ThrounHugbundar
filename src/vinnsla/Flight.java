@@ -17,13 +17,13 @@ public class Flight implements flightInterface {
     @Override
     public void setLocation(Location loc) {
         // TODO Auto-generated method stub
+        // dno með þetta tbh, þegar við erum með setter og getter í sama class. Smá ruglingslegt að mínu mati
         throw new UnsupportedOperationException("Unimplemented method 'setLocation'");
     }
 
     @Override
     public Location getLocation() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getLocation'");
+        return loc;
     }
 
     @Override
