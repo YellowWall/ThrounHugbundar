@@ -48,7 +48,6 @@ CREATE TABLE public.ticket(
 CREATE TABLE public.Seats(
     id SERIAL PRIMARY KEY,
     flight int not null,
-    person int not null,
     ticket int not null,
     seat VARCHAR(3),
     CONSTRAINT uq_seat UNIQUE(flight,seat),

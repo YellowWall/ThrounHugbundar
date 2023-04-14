@@ -83,7 +83,7 @@ public class BookingRepository {
         int seats_left = 0;
         try{ conn = DriverManager.getConnection(url,user,password);
             String query = "select DateFlight.Total_Seats, DateFlight.seats_left from DateFlight left join Flight on DateFlight.flight = Flight.id " +
-            "where flight.FlightNum = " + flight.getFlightNo() + " and DateFlight.day = " + flight.getDate().toString();
+            "where flight.FlightNum = '" + flight.getFlightNo() + "' and DateFlight.day = " + flight.getDate().toString();
             Statement stmnt = conn.createStatement();
             resultSet = stmnt.executeQuery(query);
             while(resultSet.next()){
@@ -95,6 +95,40 @@ public class BookingRepository {
             return 0;
         }
 
+    }
+    private int getCustomerIdBySSN(int ssn){
+        Connection conn = null;
+        ResultSet resultSet = null;
+        try{
+            conn = DriverManager.getConnection(url, user, password);
+            String select ="select id from customer where ssn = " + ssn + ";";
+            Statement stm = conn.createStatement();
+            resultSet = stm.executeQuery(select);
+            if(resultSet.next()){
+                return resultSet.getInt("id");
+            }
+            return 0;
+        }catch(SQLException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    private int getFlightIdbyDateandFlightNum(Date date, String flightnum){
+        Connection conn = null;
+        ResultSet resultSet = null;
+        try{conn = DriverManager.getConnection(url, user, password);
+            String select = "select DateFlight.id as id from DateFlight"+
+                " left join flight on DateFlight.flight = flight.id " +
+                " Where flight.FlightNum = '" +flightnum+"' and DateFlight.date = " + date.toString() +";";
+            Statement stm = conn.createStatement();
+            resultSet = stm.executeQuery(select);
+            if(resultSet.next()){
+                return resultSet.getInt("id");
+            }
+            return 0;
+        }catch(SQLException e){
+            return 0;
+        }
     }
     private ArrayList<Ticket> getBookingTickets(int bookingId){
         Connection conn = null;
@@ -123,7 +157,7 @@ public class BookingRepository {
             }
             return myList;
         }catch(SQLException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             return myList;
         }
 
@@ -173,8 +207,15 @@ public class BookingRepository {
         Connection conn = null;
         ResultSet resultSet = null;
         List<Booking> myList = new ArrayList<>();
+        int flightid = getFlightIdbyDateandFlightNum(booking.getDate(), booking.getFlightNo());
+        int custId = getCustomerIdBySSN(booking.getCustomer().getSSN());
         try{ conn = DriverManager.getConnection(url,user,password);
-            return myList;
+            if(flightid!=0 && custId!=0){
+                String insert = "insert into bookings (bookingId,customer,flight) values("+booking.getBookingId()+","+custId+","+flightid+";";
+                Statement stm = conn.createStatement();
+                resultSet = stm.executeQuery(insert);
+            }
+            return getBookings(booking.getCustomer());
         }catch(SQLException e){
             e.printStackTrace();
             return myList;
@@ -186,6 +227,12 @@ public class BookingRepository {
         Connection conn = null;
         ResultSet resultSet = null;
         try{ conn = DriverManager.getConnection(url,user,password);
+            String getId = "delete cascade from bookings where bookingId =" + booking.getBookingId()+" returning 1;";
+            Statement stm = conn.createStatement();
+            resultSet = stm.executeQuery(getId);
+            if(!resultSet.next()){
+                return false;
+            }
             return true;
         }catch(SQLException e){
             e.printStackTrace();
