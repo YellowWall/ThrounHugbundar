@@ -1,10 +1,13 @@
 package src.repositories;
 import java.util.List;
 
+import org.postgresql.core.Tuple;
+
 import src.vinnsla.Booking;
 import src.vinnsla.Customer;
 import src.vinnsla.Flight;
 import src.vinnsla.Seat;
+import src.vinnsla.Ticket;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -43,8 +46,9 @@ public class BookingRepository {
     public Seat[] getInFlightSeats(Flight flight){
         Connection conn = null;
         ResultSet resultSet = null;
+        List<Seat> myList = new ArrayList<>();
         try{ conn = DriverManager.getConnection(url,user,password);
-            String selectSql = "Select Seats.seat "+ 
+            String selectSql = "Select Seats.seat as seat, ticket.id as id "+ 
             "from Seats Left Join "+ 
             "tickets on Seats.ticket = ticket.id "+ 
             "left join Bookings on "+ 
@@ -58,11 +62,13 @@ public class BookingRepository {
             Statement stmnt = conn.createStatement();
             resultSet= stmnt.executeQuery(selectSql);
             while(resultSet.next()){
-                System.out.println(resultSet.getString(1));
-            }return new Seat[0];
+                String seat = resultSet.getString("seat");
+                Seat addSeat = new Seat(resultSet.getInt("id"),Integer.parseInt(seat.substring(1)),seat.charAt(0));
+                myList.add(addSeat);
+            }return (Seat[])myList.toArray();
         }catch(SQLException e){
             e.printStackTrace();
-            return new Seat[0];
+            return (Seat[])myList.toArray();
         }
         
 
@@ -86,11 +92,55 @@ public class BookingRepository {
         }
 
     }
-    public List<Booking> getBookings() {
+    private List<Ticket> getBookingTickets(int bookingId){
+        Connection conn = null;
+        ResultSet resultSet = null;
+        List<Ticket> myList = new ArrayList<>();
+        try{
+            conn = DriverManager.getConnection(url, user, password);
+            String sel = "select id, passport, SeatAssigned, name where booking = "+bookingId+";";
+            Statement stm = conn.createStatement();
+            resultSet = stm.executeQuery(sel);
+            while(resultSet.next()){
+                Ticket tik = new Ticket(resultSet.getString("name"));
+                String seat = null;
+                ResultSet rs = null;
+                if(resultSet.getBoolean("SeatAssigned")){
+                    String select = "select seat from Seats where ticket = "+resultSet.getByte("id")+";";
+                    Statement statm = conn.createStatement();
+                    rs = statm.executeQuery(select);
+                    if(rs.next()){
+                        seat = rs.getString("seat");
+                        tik.setSeat(seat);
+                    }
+                }
+                tik.setPassport(resultSet.getString("passport"));
+                myList.add(tik);
+            }
+            return myList;
+        }catch(SQLException e){
+            System.out.println(e.toString());
+            return myList;
+        }
+
+    }
+    public List<Booking> getBookings(int SSN) {
         Connection conn = null;
         ResultSet resultSet = null;
         List<Booking> myList = new ArrayList<>();
         try{ conn = DriverManager.getConnection(url,user,password);
+            String sel = "select booking.id  as id, flight.flightNum, Bookings.seats as  from Bookings left join flight on bookings.flight = DateFlight.id "+
+                "left join flight on DateFlight.flight = flight.id " +
+                "left join customer on bookings.customer = customer.id " +
+                "where customer SSN = " + SSN + ";";
+            Statement stm = conn.createStatement();
+            resultSet = stm.executeQuery(sel);
+            while(resultSet.next()){
+                int bookingId = resultSet.getInt("id");
+                List<Ticket> tickets = getBookingTickets(bookingId);
+
+            }
+            
             return myList;
         }catch(SQLException e){
             e.printStackTrace();
