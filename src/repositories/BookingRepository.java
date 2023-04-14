@@ -1,5 +1,6 @@
 package src.repositories;
 import java.util.List;
+import java.util.Locale;
 
 import org.postgresql.core.Tuple;
 
@@ -14,6 +15,8 @@ import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -22,6 +25,7 @@ public class BookingRepository {
     private final String url = "jdbc:postgresql://dpg-cghgmrg2qv23kcqt4800-a.frankfurt-postgres.render.com/hbv401g_database";
     private static String user = "hbv401g_database_user";
     private static String password = "f6oiteRl2PFv8NuE0cCGZP8XpBbMg7SS";
+    private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH);
     public BookingRepository(){
     }  
     public void run(){
@@ -92,10 +96,10 @@ public class BookingRepository {
         }
 
     }
-    private List<Ticket> getBookingTickets(int bookingId){
+    private ArrayList<Ticket> getBookingTickets(int bookingId){
         Connection conn = null;
         ResultSet resultSet = null;
-        List<Ticket> myList = new ArrayList<>();
+        ArrayList<Ticket> myList = new ArrayList<>();
         try{
             conn = DriverManager.getConnection(url, user, password);
             String sel = "select id, passport, SeatAssigned, name where booking = "+bookingId+";";
@@ -124,21 +128,37 @@ public class BookingRepository {
         }
 
     }
-    public List<Booking> getBookings(int SSN) {
+    public ArrayList<Booking> getBookings(Customer customer) {
         Connection conn = null;
         ResultSet resultSet = null;
-        List<Booking> myList = new ArrayList<>();
+        ArrayList<Booking> myList = new ArrayList<>();
         try{ conn = DriverManager.getConnection(url,user,password);
-            String sel = "select booking.id  as id, flight.flightNum, Bookings.seats as  from Bookings left join flight on bookings.flight = DateFlight.id "+
+            String sel = "select DateFlight.Date as date,booking.bookingId booking.id  as id, flight.flightNum as flightnum, Bookings.seats as seats  from Bookings left join flight on bookings.flight = DateFlight.id "+
                 "left join flight on DateFlight.flight = flight.id " +
                 "left join customer on bookings.customer = customer.id " +
-                "where customer SSN = " + SSN + ";";
+                "where customer SSN = " + customer.getSSN() + ";";
             Statement stm = conn.createStatement();
             resultSet = stm.executeQuery(sel);
             while(resultSet.next()){
                 int bookingId = resultSet.getInt("id");
-                List<Ticket> tickets = getBookingTickets(bookingId);
-
+                ArrayList<Ticket> tickets = getBookingTickets(bookingId);
+                ArrayList<String> seats = new ArrayList<>();
+                for(int i = 0; i> tickets.size();i++){
+                    if(tickets.get(i).getSeat()!=null){
+                        seats.add(tickets.get(i).getSeat());
+                    }
+                }
+                Date date = new Date();
+                try{
+                    date = formatter.parse(resultSet.getString("date"));
+                }catch(ParseException e){
+                    System.out.println(e.toString());
+                }
+                Booking book = new Booking(resultSet.getString("flightnum"), customer,date);
+                book.setSeats(seats);
+                book.setNumSeats(resultSet.getInt("seats"));
+                book.setBookingId(resultSet.getString("bookingId"));
+                myList.add(book);
             }
             
             return myList;

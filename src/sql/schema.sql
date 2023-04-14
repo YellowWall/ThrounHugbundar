@@ -30,6 +30,7 @@ CREATE TABLE public.Customer(
 );
 CREATE TABLE public.Bookings(
     id SERIAL PRIMARY KEY,
+    bookingId varchar(20) not null UNIQUE,
     customer int,
     flight int NOT NULL,
     seats int DEFAULT 0,
