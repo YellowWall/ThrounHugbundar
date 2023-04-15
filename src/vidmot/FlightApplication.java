@@ -13,7 +13,7 @@ public class FlightApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(
             FlightApplication.class.getResource("search.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle();
+        stage.setTitle("Flight Booking");
         stage.setScene(scene);
         stage.show();   // birta gluggann
     }
