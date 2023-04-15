@@ -6,6 +6,7 @@ public class Flight implements flightInterface {
     private Date date;
     private Location loc;
     private int capacity;
+    private float price;
 
     public Flight(Date dat, Location loc,String flightNo, int cap) {
         date = dat;
@@ -18,7 +19,7 @@ public class Flight implements flightInterface {
     public void setLocation(Location loc) {
         // TODO Auto-generated method stub
         // dno með þetta tbh, þegar við erum með setter og getter í sama class. Smá ruglingslegt að mínu mati
-        throw new UnsupportedOperationException("Unimplemented method 'setLocation'");
+        this.loc = loc;
     }
 
     @Override
@@ -29,6 +30,7 @@ public class Flight implements flightInterface {
     @Override
     public String[] getSeatsLeft() {
         // TODO Auto-generated method stub
+
         throw new UnsupportedOperationException("Unimplemented method 'getSeatsLeft'");
     }
 
@@ -47,19 +49,19 @@ public class Flight implements flightInterface {
     @Override
     public void setCapacity(int x) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setCapacity'");
+        capacity = x;
     }
 
     @Override
     public int getCapacity() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCapacity'");
+        return capacity;
     }
 
     @Override
     public void setDate(Date date) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setDate'");
+        this.date = date;
     }
 
     @Override
@@ -69,26 +71,24 @@ public class Flight implements flightInterface {
 
     @Override
     public void setFlightNo(String str) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setFlightNo'");
+        flightNo = str;
     }
 
     @Override
     public String getFlightNo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getFlightNo'");
-    }
+        return flightNo;
+      }
 
     @Override
     public void setPrice(Float fl) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setPrice'");
+        price = fl;
     }
 
     @Override
     public Float getPrice() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPrice'");
+        return price;
     }
 
 }
