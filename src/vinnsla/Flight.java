@@ -21,14 +21,15 @@ public class Flight implements flightInterface {
         capacity = cap;
         seats = new ArrayList<>(cap);
         seatsLeft = new ArrayList<>(cap);
-
-        for (int i = 1; i <= cap; i++) {
+        int capNumber = 1;
+        for (int i = 1; capNumber <= cap; i++) {
             for (int j = 0; j < 6; j++) {
                 String row = String.valueOf(i);
                 char seatLetter = seatLetters[j];
                 String seat = row + seatLetter;
                 seats.add(seat);
                 seatsLeft.add(seat);
+                capNumber++;
             }
         }
     }
@@ -118,8 +119,14 @@ public class Flight implements flightInterface {
     }
 
     public static void main(String[] args) {
-        Flight test = new Flight(null, null, null, 20);
-        String[] saeti = test.getSeatsLeft();
+        Flight testflug = new Flight(null, null, null, 30);
+        try {
+            testflug.setSeatTaken(3, 'b');
+            testflug.setSeatTaken(3, 'b');
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        String[] saeti = testflug.getSeatsLeft();
 
         for (String string : saeti) {
             System.out.println(string);
