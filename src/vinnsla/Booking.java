@@ -1,6 +1,5 @@
 package src.vinnsla;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 
 public class Booking implements bookingInterface {
@@ -11,7 +10,7 @@ public class Booking implements bookingInterface {
     private int numSeats = 0;
     private ArrayList<String> services = new ArrayList<String>();
     private String bookingId;
-    private Double extraPrice = 0.0;
+    //private Double extraPrice = 0.0;
 
     public Booking(String flightNo, Customer customer,Date date){
      //insert into booking database, get bookingId from there.
