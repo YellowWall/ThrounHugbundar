@@ -7,6 +7,7 @@ public class Flight implements flightInterface {
     private Location loc;
     private int capacity;
     private float price;
+    private String[] seats;
 
     public Flight(Date dat, Location loc,String flightNo, int cap) {
         date = dat;
