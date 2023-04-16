@@ -2,6 +2,7 @@ package src.vinnsla;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import junit.*;
 
 public class Flight implements flightInterface {
     private String flightNo;
@@ -46,9 +47,7 @@ public class Flight implements flightInterface {
 
     @Override
     public String[] getSeatsLeft() {
-        // TODO Auto-generated method stub
-
-        throw new UnsupportedOperationException("Unimplemented method 'getSeatsLeft'");
+        return seatsLeft.toArray(new String[0]);
     }
 
     /*
@@ -59,9 +58,11 @@ public class Flight implements flightInterface {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setSeatTaken'");
     }
-
+    /*
+     * seat must be a non-capital letter
+     */
     @Override
-    public void setSeatAvail(int x, char a) {
+    public void setSeatAvail(int x, char seat) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setSeatAvail'");
     }
@@ -109,6 +110,11 @@ public class Flight implements flightInterface {
     public Float getPrice() {
         // TODO Auto-generated method stub
         return price;
+    }
+
+    public static void main(String[] args) {
+        Flight test = new Flight(null, null, null, 20);
+
     }
 
 }
