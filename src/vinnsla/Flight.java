@@ -2,7 +2,6 @@ package src.vinnsla;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import junit.*;
 
 public class Flight implements flightInterface {
     private String flightNo;
