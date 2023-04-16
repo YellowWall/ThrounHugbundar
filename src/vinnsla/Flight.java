@@ -35,7 +35,6 @@ public class Flight implements flightInterface {
 
     @Override
     public void setLocation(Location loc) {
-        // TODO Auto-generated method stub
         // dno með þetta tbh, þegar við erum með setter og getter í sama class. Smá ruglingslegt að mínu mati
         this.loc = loc;
     }
@@ -74,19 +73,16 @@ public class Flight implements flightInterface {
 
     @Override
     public void setCapacity(int x) {
-        // TODO Auto-generated method stub
         capacity = x;
     }
 
     @Override
     public int getCapacity() {
-        // TODO Auto-generated method stub
         return capacity;
     }
 
     @Override
     public void setDate(Date date) {
-        // TODO Auto-generated method stub
         this.date = date;
     }
 
@@ -107,13 +103,11 @@ public class Flight implements flightInterface {
 
     @Override
     public void setPrice(Float fl) {
-        // TODO Auto-generated method stub
         price = fl;
     }
 
     @Override
     public Float getPrice() {
-        // TODO Auto-generated method stub
         return price;
     }
 
