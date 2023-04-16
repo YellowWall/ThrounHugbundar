@@ -24,9 +24,9 @@ public class Flight implements flightInterface {
 
         for (int i = 1; i <= cap; i++) {
             for (int j = 0; j < 6; j++) {
-                char row = (char)(i + '0');
+                String row = String.valueOf(i);
                 char seatLetter = seatLetters[j];
-                String seat = new String(new char[] {row, seatLetter});
+                String seat = row + seatLetter;
                 seats.add(seat);
                 seatsLeft.add(seat);
             }
@@ -114,7 +114,11 @@ public class Flight implements flightInterface {
 
     public static void main(String[] args) {
         Flight test = new Flight(null, null, null, 20);
+        String[] saeti = test.getSeatsLeft();
 
+        for (String string : saeti) {
+            System.out.println(string);
+        }
     }
 
 }
