@@ -54,9 +54,14 @@ public class Flight implements flightInterface {
      * seat must be a non-capital letter
      */
     @Override
-    public void setSeatTaken(int row, char seat) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setSeatTaken'");
+    public void setSeatTaken(int row, char seat) throws Exception {
+
+        String takenSeat = String.valueOf(row) + seat;
+        if (seatsLeft.contains(takenSeat)) {
+            seatsLeft.remove(takenSeat);
+        } else {
+            throw new Exception("Seat already taken");
+        }
     }
     /*
      * seat must be a non-capital letter
