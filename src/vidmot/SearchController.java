@@ -23,7 +23,7 @@ public class SearchController {
         stage.setScene(scene);
         stage.show();
     }
-    public void switchToScenesearch(ActionEvent actionEvent) throws IOException {
+    public void switchToSceneSearch(ActionEvent actionEvent) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("search.fxml")));
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene((root));
