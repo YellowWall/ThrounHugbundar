@@ -19,7 +19,7 @@ public class SearchController {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("flightInfo")));
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene((root));
-        stage.setTitle();
+        stage.setTitle("Flight Info");
         stage.setScene(scene);
         stage.show();
     }
@@ -27,7 +27,7 @@ public class SearchController {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("search.fxml")));
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene((root));
-        stage.setTitle();
+        stage.setTitle("Flight Search");
         stage.setScene(scene);
         stage.show();
     }
@@ -36,7 +36,7 @@ public class SearchController {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("registration.fxml")));
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene((root));
-        stage.setTitle();
+        stage.setTitle("Flight Registration");
         stage.setScene(scene);
         stage.show();
     }
