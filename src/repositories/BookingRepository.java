@@ -239,10 +239,35 @@ public class BookingRepository {
 
     }
 
-    public boolean reserveSeats(){
+    public boolean reserveSeats(Booking booking,Ticket ticket,String seat){
         Connection conn = null;
         ResultSet resultSet = null;
+        int ticketid = 0;
+        int flightid = 0;
         try{ conn = DriverManager.getConnection(url,user,password);
+            String tick = "select id from ticket where name = " + ticket.getName() +";";
+            Statement stm = conn.createStatement();
+            resultSet = stm.executeQuery(tick);
+            if(!resultSet.next()){
+                return false;
+            }
+            ticketid = resultSet.getInt("id");
+            String flight = "select id from flight where flightnum =" + booking.getFlightNo()+";";
+            resultSet = null;
+            resultSet = stm.executeQuery(flight);
+            if(!resultSet.next()){
+                return false;
+            }
+            flightid = resultSet.getInt("id");
+            String insert = "insert into seats(flight,ticket,seat) values (" + flightid + ","+ticketid+","+seat+") returning 1;";
+            resultSet = null;
+            resultSet = stm.executeQuery(insert);
+            if(!resultSet.next()){
+                return false;
+            }
+            String setTrue = "update SeatAssigned in ticket where id ="+ticketid+";";
+            resultSet = null;
+            resultSet = stm.executeQuery(setTrue);
             return true;
 
         }catch(SQLException e){
@@ -250,10 +275,38 @@ public class BookingRepository {
             return false;
         }
     }
-    public boolean createTicket(){
+    private int getDbIdByBookingId(String bookingId){
         Connection conn = null;
         ResultSet resultSet = null;
+        try{
+            conn = DriverManager.getConnection(url, user, password);
+            String get = "select id from bookings where bookingId ="+ bookingId +";";
+            Statement stm = conn.createStatement();
+            resultSet = stm.executeQuery(get);
+            if(resultSet.next()){
+                return resultSet.getInt("id");
+            }
+            return 0;
+        }catch(SQLException er){
+            er.printStackTrace();
+            return 0;
+        }
+
+    }
+    public boolean createTicket(Booking booking, String name){
+        Connection conn = null;
+        ResultSet resultSet = null;
+        int bookid = getDbIdByBookingId(booking.getBookingId());
+        if(bookid == 0){
+            return false;
+        }
         try{ conn = DriverManager.getConnection(url,user,password);
+            String insert = "insert into ticket(booking,name,SeatAssigned) values ("+bookid+","+name +"," + false+")returning 1;";
+            Statement stm = conn.createStatement();
+            resultSet = stm.executeQuery(insert);
+            if(!resultSet.next()){
+                return false;
+            }
             return true;
         }catch(SQLException e){
             e.printStackTrace();
