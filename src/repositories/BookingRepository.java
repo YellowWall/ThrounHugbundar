@@ -25,7 +25,7 @@ public class BookingRepository {
     private static String password = "f6oiteRl2PFv8NuE0cCGZP8XpBbMg7SS";
     private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH);
     public BookingRepository(){
-    }  
+    }
     public void run(){
         Connection conn = null;
         ResultSet resultSet = null;
