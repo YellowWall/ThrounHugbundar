@@ -15,7 +15,7 @@ public class FlightApplication extends Application {
     public void start(Stage stage) throws IOException {
         //mainstage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(
-                getClass().getResource("Search.fxml"));
+                getClass().getResource("search.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Flight Booking");
         stage.setScene(scene);
