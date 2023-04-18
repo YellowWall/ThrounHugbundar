@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.sql.SQLException;
+
 
 import java.util.ArrayList;
 public class AirlineRepository {
@@ -19,6 +21,7 @@ public class AirlineRepository {
     public List<Customer> findCustomer(String name, String flightNo){
         Connection conn = null;
         ResultSet resultSet = null;
+        List<Customer> returnList = new ArrayList<>();
         try {
             conn = DriverManager.getConnection(url,user,password);
             String query = "select Customer.Name as name, Customer.SSN as SSN, Customer.email as email"+
@@ -29,14 +32,14 @@ public class AirlineRepository {
             +" and Flight.FlightNum = " + flightNo;
             Statement statement = conn.createStatement();
             resultSet = statement.executeQuery(query);
-            List<Customer> returnList = new ArrayList<>();
             while (resultSet.next()) {
                 Customer cus = new Customer(resultSet.getString("Name"), resultSet.getInt("SSN"),resultSet.getString("email") );
                 returnList.add(cus);
             }
             return returnList;
-        } catch (Exception e) {
-            return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return returnList;
         }
     }
 

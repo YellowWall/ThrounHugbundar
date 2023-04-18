@@ -1,7 +1,7 @@
 package src.repositories;
 import java.util.List;
 import java.util.Locale;
-import org.postgresql.core.Tuple;
+//import org.postgresql.core.Tuple;
 import src.vinnsla.Booking;
 import src.vinnsla.Customer;
 import src.vinnsla.Flight;
