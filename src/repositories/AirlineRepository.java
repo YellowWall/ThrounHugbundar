@@ -1,15 +1,9 @@
 package src.repositories;
 import java.util.List;
-import java.util.Locale;
-import src.vinnsla.Booking;
 import src.vinnsla.Customer;
-import src.vinnsla.Flight;
-import src.vinnsla.Seat;
-import java.text.SimpleDateFormat;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 import java.util.ArrayList;
@@ -17,7 +11,6 @@ public class AirlineRepository {
     private final String url = "jdbc:postgresql://dpg-cghgmrg2qv23kcqt4800-a.frankfurt-postgres.render.com/hbv401g_database";
     private static String user = "hbv401g_database_user";
     private static String password = "f6oiteRl2PFv8NuE0cCGZP8XpBbMg7SS";
-    private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH);
 
     public AirlineRepository(){
         
