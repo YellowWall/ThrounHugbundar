@@ -17,5 +17,6 @@
     <orderEntry type="library" name="junit1" level="project" />
     <orderEntry type="library" name="junit" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="postgresql" level="project" />
   </component>
 </module>

@@ -9,7 +9,7 @@
 <?import javafx.scene.text.*?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0"
             prefWidth="602.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="hi.verkefni.vidmot.SceneController">
+            fx:controller="hi.verkefni.vidmot.SearchController">
     <children>
         <ImageView fitHeight="429.0" fitWidth="610.0" layoutY="-11.0" opacity="0.5" pickOnBounds="true"
                    preserveRatio="true" AnchorPane.rightAnchor="-2.0">
@@ -48,12 +48,12 @@
                         </Text>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                             <children>
-                                <TextField promptText="Sláðu inn flugnúmer">
+                                <TextField promptText="Sláðu inn flugnúmer" fx:id="flugnum">
                                     <HBox.margin>
                                         <Insets right="10.0"/>
                                     </HBox.margin>
                                 </TextField>
-                                <Button mnemonicParsing="false" onAction="#switchToSceneCompleted" text="Leita">
+                                <Button mnemonicParsing="false" onAction="#switchToSceneInfo" text="Leita">
                                     <HBox.margin>
                                         <Insets left="10.0"/>
                                     </HBox.margin>
@@ -103,7 +103,7 @@
                                         <Insets right="10.0"/>
                                     </HBox.margin>
                                 </DatePicker>
-                                <Button mnemonicParsing="false" onAction="#switchToSceneRegistration" text="Leita">
+                                <Button mnemonicParsing="false" onAction="#switchToSceneInfo" text="Leita">
                                     <HBox.margin>
                                         <Insets left="10.0"/>
                                     </HBox.margin>

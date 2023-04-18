@@ -48,7 +48,7 @@
                         </Text>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                             <children>
-                                <TextField promptText="Sláðu inn flugnúmer">
+                                <TextField promptText="Sláðu inn flugnúmer" fx:id="flugnum">
                                     <HBox.margin>
                                         <Insets right="10.0"/>
                                     </HBox.margin>

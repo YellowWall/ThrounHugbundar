@@ -129,6 +129,38 @@ public class BookingRepository {
             return 0;
         }
     }
+    public ArrayList<Flight> getFlightsByFlightNum(String flightnum){
+        Connection conn = null;
+        ResultSet resultSet = null;
+        ArrayList<Flight> myList = new ArrayList<>();
+        System.out.println(flightnum);
+        try {
+            conn = DriverManager.getConnection(url,user,password);
+            Flight tempflight = null;
+            String select = "select DateFlight.day as day,"+
+                    " DateFlight.Total_Seats as cap,"+
+                    "FLight.Departure as Departure,"+
+                    " Flight.Arrival as arrival,"+
+                    " flight.Flightnum as flightnum from "+
+                    "Flight left join DateFlight on flight.id = DateFlight.flight where flight.flightnum like '%"+
+                    flightnum+"%';";
+            System.out.println(select);
+            Statement stm = conn.createStatement();
+            resultSet = stm.executeQuery(select);
+            while(resultSet.next()){
+                tempflight = new Flight(
+                        resultSet.getDate("day"),
+                        new Location(resultSet.getString("Departure"),resultSet.getString("Arrival")),
+                        resultSet.getString("flightnum"),
+                        resultSet.getInt("cap"));
+                myList.add(tempflight);
+            }
+            return myList;
+        }catch (SQLException error){
+            error.printStackTrace();
+            return myList;
+        }
+    }
 
     private ArrayList<Ticket> getBookingTickets(int bookingId) {
         Connection conn = null;
