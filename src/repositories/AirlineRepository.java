@@ -28,8 +28,8 @@ public class AirlineRepository {
             "from Customer left Join Bookings on Customer.id = Bookings.customer" +
             "left join DateFligth on Bookins.flight = DateFlight.id" + 
             "left join Flight on DateFlight.flight = Flight.id"
-            +"where Customer Name = "+ name 
-            +" and Flight.FlightNum = " + flightNo;
+            +"where Customer Name = '"+ name 
+            +"' and Flight.FlightNum = " + flightNo;
             Statement statement = conn.createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
@@ -44,10 +44,48 @@ public class AirlineRepository {
     }
 
     public List<Customer> addCustomer(Customer customer){
-        return null;
+        Connection conn = null;
+        ResultSet resultSet = null;
+        List<Customer> returnList = new ArrayList<>();
+        Customer cus = null;
+        try {
+            conn = DriverManager.getConnection(url,user,password);
+            String stmnt = "INSERT INTO Customer (name,ssn,email) VALUES ('" + customer.getName()
+            + "', " + customer.getSSN() + ", '" + customer.getEmail() + "')";
+            Statement statement = conn.createStatement();
+            statement.executeUpdate(stmnt);
+
+            // Raðar síðan öllum Customers í lista og skilar honum svo eftir að nýja er bætt við
+            String query = "SELECT Name, SSN, email FROM Customer";
+            resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                cus = new Customer(resultSet.getString("Name"), resultSet.getInt("SSN"),resultSet.getString("email") );
+                returnList.add(cus);
+            }
+            return returnList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return returnList;
+        }
     }
 
     public Customer updateCustomer(Customer customer){
-        return null;
+        Connection conn = null;
+        Customer cus = null;
+        try {
+            conn = DriverManager.getConnection(url,user,password);
+            String stmnt = "UPDATE Customer" +
+            "SET Name = '" + customer.getName() + 
+            "' , SSN = " + customer.getSSN() +
+            " , email = '" + customer.getEmail() +
+            "' " +
+            "where SSN = " + customer.getSSN();
+            Statement statement = conn.createStatement();
+            statement.executeUpdate(stmnt);
+            return customer;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return cus;
+        }
     }
 }
