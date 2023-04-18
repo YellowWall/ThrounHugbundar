@@ -1,7 +1,7 @@
 package hi.verkefni.vinnsla;
 //import java.util.ArrayList;
 
-public class Customer {
+public class Customer implements customerInterface {
     private String name;
     private int SSN;
     private String email;
