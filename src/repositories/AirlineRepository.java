@@ -28,7 +28,12 @@ public class AirlineRepository {
         ResultSet resultSet = null;
         try {
             conn = DriverManager.getConnection(url,user,password);
-            String query = "select * from customer where Name =" + name;
+            String query = "select Customer.Name as name, Customer.SSN as SSN, Customer.email as email"+
+            "from Customer left Join Bookings on Customer.id = Bookings.customer" +
+            "left join DateFligth on Bookins.flight = DateFlight.id" + 
+            "left join Flight on DateFlight.flight = Flight.id"
+            +"where Customer Name = "+ name 
+            +" and Flight.FlightNum = " + flightNo;
             Statement statement = conn.createStatement();
             resultSet = statement.executeQuery(query);
             List<Customer> returnList = new ArrayList<>();
