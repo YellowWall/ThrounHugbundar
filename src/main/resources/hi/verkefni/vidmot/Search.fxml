@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0"
+            prefWidth="602.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hi.verkefni.vidmot.SearchController">
+    <children>
+        <ImageView fitHeight="429.0" fitWidth="610.0" layoutY="-11.0" opacity="0.5" pickOnBounds="true"
+                   preserveRatio="true" AnchorPane.rightAnchor="-2.0">
+            <image>
+                <Image url="@./beach.jpg"/>
+            </image>
+            <effect>
+                <Blend>
+                    <topInput>
+                        <Blend/>
+                    </topInput>
+                </Blend>
+            </effect>
+        </ImageView>
+        <VBox prefHeight="413.0" prefWidth="602.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SÍMI air" textAlignment="CENTER"
+                      wrappingWidth="598.936767578125">
+                    <font>
+                        <Font size="50.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </VBox.margin>
+                </Text>
+                <VBox prefHeight="190.0" prefWidth="579.0" style="-fx-background-color: #CFF0E4;">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Leita að flugi eftir flugnúmeri:"
+                              wrappingWidth="577.3366584777832">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Text>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <TextField promptText="Sláðu inn flugnúmer">
+                                    <HBox.margin>
+                                        <Insets right="10.0"/>
+                                    </HBox.margin>
+                                </TextField>
+                                <Button mnemonicParsing="false" onAction="#switchToSceneInfo" text="Leita">
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                              text="Leita að flugi eftir staðsetningu og tímasetningu:"
+                              wrappingWidth="578.1367378234863">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Text>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <TextField prefHeight="26.0" prefWidth="175.0" promptText="Sláðu inn brottfararstað">
+                                    <HBox.margin>
+                                        <Insets right="10.0"/>
+                                    </HBox.margin>
+                                </TextField>
+                                <TextField layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="175.0"
+                                           promptText="Sláðu inn áfangastað">
+                                    <HBox.margin>
+                                        <Insets right="10.0"/>
+                                    </HBox.margin>
+                                </TextField>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <DatePicker promptText="Brottför">
+                                    <HBox.margin>
+                                        <Insets right="10.0"/>
+                                    </HBox.margin>
+                                </DatePicker>
+                                <DatePicker layoutX="10.0" layoutY="10.0" promptText="Heimkoma">
+                                    <HBox.margin>
+                                        <Insets right="10.0"/>
+                                    </HBox.margin>
+                                </DatePicker>
+                                <Button mnemonicParsing="false" onAction="#switchToSceneInfo" text="Leita">
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
