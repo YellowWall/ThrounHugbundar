@@ -11,10 +11,10 @@
             prefWidth="602.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="hi.verkefni.vidmot.SearchController">
     <children>
-        <ImageView fitHeight="429.0" fitWidth="610.0" layoutY="-11.0" opacity="0.5" pickOnBounds="true"
-                   preserveRatio="true" AnchorPane.rightAnchor="-2.0">
+        <ImageView fitHeight="426.0" fitWidth="614.0" layoutY="-13.0" opacity="0.5" pickOnBounds="true"
+                   preserveRatio="true" AnchorPane.rightAnchor="-1.0">
             <image>
-                <Image url="@./beach.jpg"/>
+                <Image url="@beach.jpg"/>
             </image>
             <effect>
                 <Blend>
@@ -24,10 +24,10 @@
                 </Blend>
             </effect>
         </ImageView>
-        <VBox prefHeight="413.0" prefWidth="602.0">
+        <VBox layoutY="-3.0" prefHeight="426.0" prefWidth="587.0">
             <children>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SÍMI air" textAlignment="CENTER"
-                      wrappingWidth="598.936767578125">
+                      wrappingWidth="602.936767578125">
                     <font>
                         <Font size="50.0"/>
                     </font>
@@ -48,7 +48,7 @@
                         </Text>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                             <children>
-                                <TextField promptText="Sláðu inn flugnúmer" fx:id="flugnum">
+                                <TextField promptText="Sláðu inn flugnúmer">
                                     <HBox.margin>
                                         <Insets right="10.0"/>
                                     </HBox.margin>
@@ -103,7 +103,7 @@
                                         <Insets right="10.0"/>
                                     </HBox.margin>
                                 </DatePicker>
-                                <Button mnemonicParsing="false" onAction="#switchToSceneInfo" text="Leita">
+                                <Button mnemonicParsing="false" text="Leita">
                                     <HBox.margin>
                                         <Insets left="10.0"/>
                                     </HBox.margin>
@@ -118,6 +118,69 @@
                         <Insets/>
                     </VBox.margin>
                 </VBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CFF0E4;">
+                    <VBox.margin>
+                        <Insets top="15.0"/>
+                    </VBox.margin>
+                    <children>
+                        <VBox prefHeight="102.0" prefWidth="198.0">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ódýrasta flug dagsins!"
+                                      wrappingWidth="176.53673934936523">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                </Text>
+                                <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="156.0" text="Skoða nánar">
+                                    <VBox.margin>
+                                        <Insets left="10.0" right="10.0"/>
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                        <ImageView fitHeight="103.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@denmark.jpg"/>
+                            </image>
+                        </ImageView>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="102.0" prefWidth="198.0">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Danmörk"
+                                      wrappingWidth="176.53673934936523">
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Text>
+                                <Text layoutX="20.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      text="Kíktu í helgarferð til Danmerkur" wrappingWidth="176.53673934936523">
+                                    <VBox.margin>
+                                        <Insets left="10.0" right="10.0"/>
+                                    </VBox.margin>
+                                </Text>
+                                <Text layoutX="20.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      text="Báðar leiðir, verð frá 32.000 kr">
+                                    <VBox.margin>
+                                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
+                                    </VBox.margin>
+                                </Text>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nokkrar dagsetningar í boði">
+                                    <VBox.margin>
+                                        <Insets left="10.0" right="10.0"/>
+                                    </VBox.margin>
+                                </Text>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </VBox>
+                    </children>
+                </HBox>
             </children>
         </VBox>
     </children>
