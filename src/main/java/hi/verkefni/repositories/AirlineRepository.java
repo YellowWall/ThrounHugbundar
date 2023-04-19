@@ -29,7 +29,7 @@ public class AirlineRepository {
             "from Customer left Join Bookings on Customer.id = Bookings.customer" +
             "left join DateFligth on Bookins.flight = DateFlight.id" + 
             "left join Flight on DateFlight.flight = Flight.id"
-            +"where Customer Name = '"+ name 
+            +"where Customer.Name = '"+ name 
             +"' and Flight.FlightNum = " + flightNo;
             Statement statement = conn.createStatement();
             resultSet = statement.executeQuery(query);
