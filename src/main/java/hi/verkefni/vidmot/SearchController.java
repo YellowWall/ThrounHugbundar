@@ -29,7 +29,13 @@ public class SearchController {
         while (it.hasNext()){
             System.out.println(it.next().getFlightNo());
         }
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("flightInfo.fxml")));
+        FXMLLoader loader  = new FXMLLoader();
+        loader.setLocation(getClass().getResource("flightInfo.fxml"));
+        //root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("flightInfo.fxml")));
+        loader.load();
+        FlightInfoController cont =loader.getController();
+        cont.setFlights(flights);
+        root = loader.getRoot();
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene((root));
         stage.setTitle("Flight Info");
