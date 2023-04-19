@@ -3,6 +3,7 @@ module hi.verkefni.vidmot {
     requires javafx.fxml;
 
     requires java.sql;
+    requires postgresql;
     opens hi.verkefni.vidmot to javafx.fxml;
     exports hi.verkefni.vidmot;
     //requires javafx.graphics;
