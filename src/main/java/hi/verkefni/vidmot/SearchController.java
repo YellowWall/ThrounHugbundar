@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Objects;
 
 public class SearchController {
@@ -22,8 +23,12 @@ public class SearchController {
     public ArrayList<Flight> flights = null;
 
     public void switchToSceneInfo(ActionEvent actionEvent) throws IOException {
-        ArrayList<Flight> flights = new BookingRepository().getFlightsByFlightNum(flugnum.getText());
+        flights = new BookingRepository().getFlightsByFlightNum(flugnum.getText());
         System.out.println(flights);
+        Iterator<Flight> it = flights.iterator();
+        while (it.hasNext()){
+            System.out.println(it.next().getFlightNo());
+        }
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("flightInfo.fxml")));
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene((root));
