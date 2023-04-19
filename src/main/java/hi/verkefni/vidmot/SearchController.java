@@ -19,6 +19,7 @@ public class SearchController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    public ArrayList<Flight> flights = null;
 
     public void switchToSceneInfo(ActionEvent actionEvent) throws IOException {
         ArrayList<Flight> flights = new BookingRepository().getFlightsByFlightNum(flugnum.getText());
